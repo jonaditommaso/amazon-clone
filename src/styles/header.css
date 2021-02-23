@@ -1,0 +1,107 @@
+.header {
+    background-color: #131921;
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header__logo {
+    width: 100px;
+    margin-top: 18px;
+    margin-left: 20px;
+    margin-right: 20px;
+    object-fit: contain;
+}
+
+.header__search {
+    display: flex;
+    flex: 1;
+}
+
+.header__searchInput {
+    outline: none;
+    height: 15px;
+    padding: 9px;
+    border: solid 3.3px white;
+    width: 100%;
+    border-radius: 5px
+}
+
+.header__searchInput:focus {
+    border: solid 3.3px;
+    border-color: #eec933
+} 
+
+.header__searchIcon {
+    padding: 8px;
+    height: 23px !important; 
+    background-color: #ffdf5c;
+    border-radius: 5px;
+}
+
+.header__searchIcon:hover {
+    cursor: pointer;
+}
+
+.header__nav {
+    display: flex;
+    justify-content: space-evenly; 
+}
+
+.header__link {
+    color: white;
+    text-decoration: none;
+}
+
+.header__option {
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.header__optionLineOne {
+    font-size: 10px;
+}
+
+.header__optionLineTwo {
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.header__optionCart {
+    display: flex;
+    align-items: center;
+    flex-direction: column-reverse;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.header__cartCount {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.header__optionExit {
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.header__actionButtons {
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.header__actionCancelButton {
+    margin-top: 10px;
+}
+
+.header__google {
+    margin-left: 10px;
+    margin-right: 10px;
+}

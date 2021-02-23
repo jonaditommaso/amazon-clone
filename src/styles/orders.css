@@ -1,0 +1,21 @@
+.orders {
+    padding: 20px 80px;
+}
+
+.orders > h1 {
+    margin: 30px 0;
+}
+
+.orders > button {
+    background-color: #ffdf5c;
+    border: 1px solid;
+    border-radius: 5px;
+    border-color:#ffdf5c ;
+    border-color: #a99734 #9c7e31 #846a29; 
+    padding: 5px;
+}
+
+.orders > button:hover {
+    cursor: pointer;
+    background-color: #eec933;
+}

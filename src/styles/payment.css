@@ -1,0 +1,56 @@
+.payment {
+    background-color: white;
+    padding: 10px 50px;
+}
+
+.payment__container {
+  background: #2980B9; 
+  background: -webkit-linear-gradient(to left, #FFFFFF, #6DD5FA, #2980B9);
+  background: linear-gradient(to left, #FFFFFF, #6DD5FA, #2980B9); 
+  padding: 10px;
+  font-weight: 400;
+  border-radius: 5px;
+}
+
+.payment > button {
+  background-color: #ffdf5c;
+  border: 1px solid;
+  border-radius: 5px;
+  border-color:#ffdf5c ;
+  border-color: #a99734 #9c7e31 #846a29; 
+  padding: 5px;
+  margin-top: 5px;
+}
+
+.payment > button:hover {
+  cursor: pointer;
+  background-color: #eec933;
+}
+
+.payment__section {
+  display: flex;
+  padding: 15px;
+  margin: 0 40px auto;
+  border-bottom: 1px solid lightgray;
+}
+
+.payment__finish {
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 5px;
+}
+
+.payment__address {
+  margin-left: 35px;
+}
+
+.payment__price {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.payment__stripe {
+  margin-bottom: 15px;
+  padding: 15px;
+  margin-top: 5px;
+}

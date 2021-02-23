@@ -1,0 +1,32 @@
+.geolocation {
+    color: white;
+    padding: 5px;
+    display: inline-flex;
+    border: 1px solid #131921;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+.geolocation:hover {
+    border: 1px solid white;
+    padding: 5px;
+    margin: 5px;
+}
+
+.geolocation__icon {
+    display: flex;
+    align-items: center;
+}
+
+.geolocation__text {
+    padding: 5px;
+}
+
+.geolocation__text__to {
+    font-size: smaller;
+}
+
+.geolocation__text__location {
+    font-size: medium;
+    display: block;
+}
