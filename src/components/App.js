@@ -18,7 +18,7 @@ class App extends Component {
     return ( 
       <Router history={history}>
         <div className="app">
-          <Header/>
+          <Header />
           <Switch>
             <Route path="/" exact component={Home} />
             <Route path="/checkout" exact component={Checkout} />

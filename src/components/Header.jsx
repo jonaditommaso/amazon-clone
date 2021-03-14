@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import '../styles/header.css';
 import { connect } from 'react-redux';
 import { addToCart, signIn, signOut } from '../actions';
+import InputSearch from './InputSearch';
 import GoogleAuth from './GoogleAuth';
 import Geolocation from './Geolocation';
 import Modal from './Modal';
@@ -79,7 +80,7 @@ class Header extends Component {
                 <Geolocation/>
 
                 <div className="header__search">
-                    <input type="text" className="header__searchInput" />
+                    <InputSearch />
                     <SearchIcon className="header__searchIcon" />
                 </div>
                 
