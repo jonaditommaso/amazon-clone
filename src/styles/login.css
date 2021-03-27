@@ -48,6 +48,15 @@
   font-size: 12px;
 }
 
+.login__container > form > input {
+  background-color: #e3e6e8;
+}
+
+.login__container__warning {
+  text-align: center;
+}
+
+
 .login__signInButton {
   background: #ffdf5c;
   width: 100%;

@@ -38,18 +38,27 @@ function Register() {
 
             <div className="login__container">
                 <h1>Register</h1>
+                <div className="login__container__warning">
+                    <em>Register with fake Amazon account is not yet available</em>
+                    <h5><Link to="/login" style={{textDecoration: 'none', color: '#eec933'}}>Back</Link> & try to login with Google</h5>
+                </div>
+                
+                <br/>
+
                 <form>
                     <h5>E-mail</h5>
                     <input 
                         value={email} 
                         onChange={e => setEmail(e.target.value)} 
                         type="email"
+                        disabled
                     />
                     <h5>Password</h5>
                     <input 
                         value={password}
                         onChange={e => setPassword(e.target.value)} 
                         type="password" 
+                        disabled
                     />
                     <button 
                         className="login__signInButton"

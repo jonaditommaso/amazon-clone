@@ -35,20 +35,29 @@ function Login() {
 
             <div className="login__container">
                 <h1>Sign in</h1>
+                <div className="login__container__warning">
+                    <em>Register with fake Amazon account is not yet available</em>
+                    <h5>Try to login with Google</h5>
+                </div>
+
+                <br/>
+
                 <form>
                     <h5>Name</h5>
-                    <input type="text" />
+                    <input type="text" disabled/>
                     <h5>E-mail</h5>
                     <input 
                         value={email} 
                         onChange={e => setEmail(e.target.value)} 
                         type="email" 
+                        disabled
                     />
                     <h5>Password</h5>
                     <input 
                         value={password} 
                         onChange={e => setPassword(e.target.value)} 
                         type="password" 
+                        disabled
                     />
                     <button 
                         className="login__signInButton"
