@@ -6,13 +6,6 @@
     top: 0;
     z-index: 100;
 }
-
-/* @media (max-width: 400px) {
-    .header {
-        flex-direction: column;
-    }
-} */
-
 .header__logo {
     width: 100px;
     margin-top: 18px;

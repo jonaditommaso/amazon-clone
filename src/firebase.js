@@ -12,17 +12,8 @@ const firebaseConfig = {
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 
-// const auth = firebase.auth();
+const auth = firebase.auth();
 const db = firebase.database();
 const dbfirestore = firebaseApp.firestore();
-
-const auth = firebaseApp.auth();
-auth.onAuthStateChanged((user) =>{
-    if(user){
-        console.log('setUser', user);
-    }else{
-        console.log('setUserNull', null);
-    }
-});
 
 export { db, auth, dbfirestore };
