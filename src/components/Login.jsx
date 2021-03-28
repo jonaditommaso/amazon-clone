@@ -36,7 +36,7 @@ function Login() {
             <div className="login__container">
                 <h1>Sign in</h1>
                 <div className="login__container__warning">
-                    <em>Register with fake Amazon account is not yet available</em>
+                    <em>Sign in with fake Amazon account is not available yet</em>
                     <h5>Try to login with Google</h5>
                 </div>
 

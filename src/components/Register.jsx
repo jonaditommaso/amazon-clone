@@ -39,7 +39,7 @@ function Register() {
             <div className="login__container">
                 <h1>Register</h1>
                 <div className="login__container__warning">
-                    <em>Register with fake Amazon account is not yet available</em>
+                    <em>Register with fake Amazon account is not available yet</em>
                     <h5><Link to="/login" style={{textDecoration: 'none', color: '#eec933'}}>Back</Link> & try to login with Google</h5>
                 </div>
                 
