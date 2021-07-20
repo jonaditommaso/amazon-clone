@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/header.css';
 import { connect } from 'react-redux';
-import { addToCart, signIn, signOut } from '../actions';
+import { addToCart, signIn, signOut, signOutWithAmazon } from '../actions';
 import InputSearch from './InputSearch';
 import GoogleAuth from './GoogleAuth';
 import Geolocation from './Geolocation';
@@ -19,7 +19,7 @@ class Header extends Component {
     state = { openModal: false }
 
     renderExitIcon = () => {
-        if (this.props.userGoogle) {
+        if (this.props.amazonUser || this.props.userGoogle) {
             return (
                 <>
                     <ExitToAppIcon onClick={()=> this.setState({openModal: true})}/>
@@ -42,12 +42,27 @@ class Header extends Component {
         history.push('/');
     }
 
+    signOutAndClean = () => {
+        this.props.signOutWithAmazon();
+        localStorage.clear();
+    }
+
     renderActions = () => {
 
         return (
             <div className="header__actionButtons">
                 <div onClick={()=> this.setState({ openModal: false })}>
-                      <GoogleAuth />
+                    {this.props.amazonUser 
+                    ? <Button
+                        size="large"
+                        style={{width: '240px'}}
+                        variant="contained" 
+                        color="primary" 
+                        onClick={()=> this.signOutAndClean()}
+                        >
+                            Sign Out
+                        </Button>
+                    : <GoogleAuth />}  
                 </div>
                 <div className="header__actionCancelButton">
                     <Button
@@ -85,14 +100,16 @@ class Header extends Component {
                 </div>
                 
                 <div className="header__nav">
+                    <div className="header__navLeft">
                     <Link 
-                        to={!this.props.userGoogle && "/login"} 
+                        to={(!this.props.userGoogle && !this.props.amazonUser) && "/login" } 
                         className="header__link">
+                        
                         <div className="header__option">
                             <span  className="header__optionLineOne">
                                 {
-                                    this.props.userGoogle 
-                                    ? <span>Hello <h2>{this.props.userGoogle.getName()}</h2></span> 
+                                    (this.props.amazonUser || this.props.userGoogle) 
+                                    ? <span>Hello <h2>{this.props.amazonUser?.name || this.props.userGoogle?.getName()}</h2></span> 
                                     : <h2>Sign in</h2>
                                 }
                             </span>
@@ -101,10 +118,10 @@ class Header extends Component {
 
                     <Link to="/orders" className="header__link">
                         <div className="header__option">
-                            <span className="header__optionLineOne">Returns</span>
-                            <span className="header__optionLineTwo">& Orders</span>
+                            <span className="header__optionLineTwo">Orders</span>
                         </div>
                     </Link>
+                    </div>
 
                     <Link to="/checkout" className="header__link">
                         <div className="header__optionCart">
@@ -115,7 +132,7 @@ class Header extends Component {
                         </div>
                     </Link>
 
-                    <Link  className="header__link header__optionExit">
+                    <Link className="header__link header__optionExit" to="/">
                         {this.renderExitIcon()}
                     </Link>
                 </div>
@@ -128,9 +145,10 @@ class Header extends Component {
 const mapStateToProps = (state)=> {
     return {
         cartListNumber: state.cart.cartList,
-        userGoogle: state.google.userId
+        userGoogle: state.google.userId,
+        amazonUser: state.login.user
     } 
 }
 
-export default connect(mapStateToProps, {addToCart, signIn, signOut})(Header);
+export default connect(mapStateToProps, {addToCart, signIn, signOut, signOutWithAmazon})(Header);
 

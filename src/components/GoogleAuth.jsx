@@ -3,6 +3,7 @@ import GoogleButton from 'react-google-button';
 import { connect } from 'react-redux';
 import { signIn, signOut } from '../actions/index';
 import { CLIENT_ID } from '../utils/clientIdGoogle';
+import history from '../history';
 
 
 class GoogleAuth extends Component {
@@ -32,11 +33,15 @@ class GoogleAuth extends Component {
           }
      }
      
+    manageLogin = () => {
+        this.onSignInClick();
+        history.push('/')
+    } 
 
      renderAuthButton() {
         if(!this.props.isSignedIn) {
             return <GoogleButton
-                        onClick={ this.onSignInClick }
+                        onClick={ this.manageLogin }
                     />
         }
         else {

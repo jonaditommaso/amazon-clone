@@ -1,17 +1,15 @@
 import { ACTIVE_USER, INACTIVE_USER } from '../actions/types';
 
-export default (state = {user: null}, action) => {
+const INITIAL_STATE = {user: null};
+
+export default (state = INITIAL_STATE, action) => {
     switch(action.type) {
         case ACTIVE_USER:
-            return {
-                ...state,
-                user: action.user
-            }
+            return { ...state, user: action.payload}
+        
         case INACTIVE_USER:
-            return {
-                ...state,
-                user: null
-            }
+            return {...state, user: null}
+        
         default:
             return state    
     }

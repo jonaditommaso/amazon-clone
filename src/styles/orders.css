@@ -19,3 +19,18 @@
     cursor: pointer;
     background-color: #eec933;
 }
+
+@media (max-width: 400px) {
+    .orders {
+        padding: 10px 50px;
+    }
+    
+    .orders > h1 {
+        margin: 10px 0;
+        font-weight: 500;
+    }
+
+    .orders > button { 
+        padding: 3px;
+    }
+}

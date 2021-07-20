@@ -30,3 +30,27 @@
     font-size: medium;
     display: block;
 }
+
+@media (max-width: 400px) {
+    .geolocation {
+        padding: 1px;
+        margin: 1px;
+    }
+    
+    .geolocation:hover {
+        padding: 1px;
+        margin: 1px;
+    }
+    
+    .geolocation__text {
+        padding: 3px;
+    }
+
+    .geolocation__text__location {
+        font-size: small;
+    }
+
+    .geolocation__icon > :first-child {
+        font-size: small;
+    }
+}

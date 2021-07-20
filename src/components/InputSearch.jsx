@@ -3,7 +3,6 @@ import '../styles/inputSearch.css';
 
 const InputSearch = () => {
     const [term, setTerm] = useState('');
-    console.log('input', term);
 
     return ( 
         <input 

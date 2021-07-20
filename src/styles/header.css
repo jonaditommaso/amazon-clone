@@ -47,6 +47,11 @@
     margin-right: 10px;
 }
 
+.header__navLeft {
+    display: inline-flex;
+    align-items: center;
+}
+
 .header__optionLineOne {
     font-size: 10px;
 }
@@ -89,4 +94,64 @@
 .header__google {
     margin-left: 10px;
     margin-right: 10px;
+}
+
+
+@media (max-width: 400px) {
+
+    .header__logo {
+        width: 70px;
+        margin-top: 8px;
+        margin-left: 5px;
+        margin-right: 5px;
+        object-fit: contain;
+    }
+
+    .header__optionCart {
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+
+    .header__cartCount {
+        margin-left: 2px;
+        margin-right: 2px;
+    }
+
+    .header__optionExit {
+        margin-left: 2px;
+        margin-right: 2px;
+    }
+
+    .header__searchIcon {
+        padding: 4px;
+        height: 23px; 
+    }
+
+    .header__search {
+        align-items: center;
+        flex: 0.7;
+    }
+
+    .header__option {
+        margin-left: 4px;
+        margin-right: 4px;
+    }
+    
+    .header__optionLineOne {
+        font-size: 7px;
+        margin-bottom: 7px;
+    }
+    
+    .header__optionLineTwo {
+        font-size: 8px;
+        font-weight: 800;
+    }
+
+    .header__navLeft {
+        flex-direction: column;
+    }
+
+    /* .header__optionLineOne {
+        align-items: center;
+    } */
 }

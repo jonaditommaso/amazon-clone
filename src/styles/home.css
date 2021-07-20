@@ -20,3 +20,31 @@
     margin-left: 5px;
     margin-right: 5px;
 }
+
+.home__rowFlex {
+    display: inline-flex;
+    margin: auto;
+}
+
+
+@media (max-width: 400px) {
+    .home {
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+        display: block;
+        justify-content: center;
+    }
+
+    .home__image {
+        height: 300px;
+        width: 360px auto;
+        display: inline-flex;
+        justify-content: center;
+    }
+
+    .home__rowFlex {
+        display: inline-flex;
+        flex-direction: column;
+    }
+}

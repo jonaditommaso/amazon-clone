@@ -30,10 +30,11 @@ function Orders() {
             <button onClick={()=> history.replace('/')}>Back Home</button>
             <div className='orders__order'>
              
-                {orders?.map(order => ( 
+                {orders?.map((order, i) => ( 
                    <Order 
                         order={order[1]} 
                         orderId={order[0]}
+                        key={i}
                     />
                 ))} 
             </div>

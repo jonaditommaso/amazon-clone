@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import history from '../history';
 import '../styles/login.css';
 import GoogleAuth from './GoogleAuth';
-import { auth } from '../firebase';
+import { signInWithAmazon } from '../actions';
 
 
 function Login() {
@@ -11,14 +11,15 @@ function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    const login = e => {
-        e.preventDefault();
+     const login = e => {
+         e.preventDefault();
 
-        auth.signInWithEmailAndPassword(email, password)
-        .then(() => {
-                 history.push('/');
-        })
-        .catch(error => alert(error.message));
+    //     if(email && password) {
+    //         if(email === localStorage.getItem('email') && password === localStorage.getItem('password')) {
+    //             signInWithAmazon();
+    //             history.push('/');
+    //         }
+    //     }
     }
 
     
@@ -36,15 +37,13 @@ function Login() {
             <div className="login__container">
                 <h1>Sign in</h1>
                 <div className="login__container__warning">
-                    <em>Sign in with fake Amazon account is not available yet</em>
-                    <h5>Try to login with Google</h5>
+                    <em style={{fontWeight: '300', fontSize: '11px'}}>Sign in with fake Amazon account is not available yet</em>
+                    <h5>Try to login with Google or Sign up</h5>
                 </div>
 
                 <br/>
 
                 <form>
-                    <h5>Name</h5>
-                    <input type="text" disabled/>
                     <h5>E-mail</h5>
                     <input 
                         value={email} 
@@ -61,8 +60,7 @@ function Login() {
                     />
                     <button 
                         className="login__signInButton"
-                        onClick={login} 
-                        type="submit" 
+                        onClick={(e) => login(e)} 
                     >
                         Sign in
                     </button>

@@ -18,8 +18,8 @@ class Checkout extends Component {
                     />
                     {this.props.cartList?.length === 0 ? (
                         <div>
-                            <h2>Your Shopping Cart is empty</h2>
-                            <p>
+                            <h2 className="checkH">Your Shopping Cart is empty</h2>
+                            <p className="checkP">
                                 You have no items in your cart. To buy one or more items, click "Add to cart" next to the item
                             </p>
                         </div> 
@@ -30,7 +30,7 @@ class Checkout extends Component {
                                 Remove all
                             </button> 
                             {this.props.cartList?.map(item => (
-                                <div>
+                                <div key={item.id}>
                                     <CheckoutProduct
                                         id={item.id}
                                         title={item.title}

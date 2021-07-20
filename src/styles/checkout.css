@@ -31,3 +31,23 @@
   cursor: pointer;
   background-color: #eec933;
 }
+
+@media (max-width: 380px) {
+  .checkout {
+      flex-direction: column;
+      justify-content: center;
+  }
+
+  .checkH {
+    font-size: 21px;
+  }
+
+  .checkP {
+      font-size: 13px;
+  }
+
+  .checkout__right {
+    display: inline-flex;
+    justify-content: center;
+  }
+}

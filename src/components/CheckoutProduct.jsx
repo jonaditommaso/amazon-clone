@@ -20,7 +20,7 @@ class CheckoutProduct extends Component {
 
                     <div className="checkoutProduct__rating">
                         {
-                            Array(this.props.rating).fill().map(()=> <p>⭐</p> )
+                            Array(this.props.rating).fill().map((rating, i)=> <p key={i}>⭐</p> )
                         }
                     </div>
                     <button onClick={ () => this.props.removeFromCart(this.props.id)}>

@@ -12,7 +12,7 @@ import StripeComponent from './StripeComponent';
 import Swal from 'sweetalert2';
 import { GEO_KEY } from '../utils/geolocationConfig';
 
-const Payment = ({ cartList, userGoogle, emptyCart }) => {
+const Payment = ({ cartList, userGoogle, emptyCart, amazonUser }) => {
 
     const [city, setCity] = useState('');
     const [road, setRoad] = useState('');
@@ -23,10 +23,11 @@ const Payment = ({ cartList, userGoogle, emptyCart }) => {
         if(navigator.geolocation) {
             navigator.geolocation.getCurrentPosition( async (position) => {
             
-                const {data} = await axios.get(`https://api.opencagedata.com/geocode/v1/json?q=${position.coords.latitude}%2C${position.coords.longitude}&key=${GEO_KEY}`)
-                setCity(data.results[0].components.city);
-                setRoad(data.results[0].components.road);
-                setState(data.results[0].components.state);
+                const {data} = await axios.get(`https://api.opencagedata.com/geocode/v1/json?q=${position.coords.latitude}%2C${position.coords.longitude}&key=${GEO_KEY}`);
+                setCity(data?.results[0].components.state_district);
+                setRoad(data?.results[0].components.road);
+                setState(data?.results[0].components.state);
+                console.log(data)
             },
             handleLocationError);     
         } 
@@ -105,6 +106,7 @@ const Payment = ({ cartList, userGoogle, emptyCart }) => {
                     <div className="payment__stripe">
                         {emptyCartAlert()}  
                     </div>
+                    <p className="payment__text"><i>Testing card number: 4242 4242 4242 4242</i></p>
                 </div>
                 
             </div>
@@ -116,7 +118,7 @@ const Payment = ({ cartList, userGoogle, emptyCart }) => {
                     <h3>Delivery Address</h3>
                 </div>
                 <div className='payment__address'>
-                    <p>{userGoogle.getName()}</p>
+                    <p>{(userGoogle?.getName() || amazonUser?.name)}</p>
                     <p>{road}</p>
                     <p>{`${city}, ${state}`}</p>
                 </div>
@@ -146,7 +148,8 @@ const Payment = ({ cartList, userGoogle, emptyCart }) => {
 const mapStateToProps = (state) => {
     return { 
         cartList: state.cart.cartList,
-        userGoogle: state.google.userId
+        userGoogle: state.google.userId,
+        amazonUser: state.login.user
     }
 }
 

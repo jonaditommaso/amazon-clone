@@ -7,20 +7,29 @@ import { db } from '../firebase';
 import { v4 as uuidv4 } from 'uuid';
 import { STRIPE_KEY } from '../utils/stripeKey';
 
-const StripeComponent = ({ price, name, cartList, emptyCart, userGoogle }) => {
+const StripeComponent = ({ price, name, cartList, emptyCart, userGoogle, amazonUser }) => {
 
-    const googleId = userGoogle.getId();
-    const googleName = userGoogle.getName();
+    const googleId = userGoogle?.getId();
+    const googleName = userGoogle?.getName();
+
+    const userName = amazonUser?.name;
 
     const handleToken = async (token) => {
 
-        await db.ref('/orders/' + uuidv4()).set({
-            cart: cartList,
-            googleId,
-            googleName,
-            token
-        });
-
+        if(userGoogle) {
+            await db.ref('/orders/' + uuidv4()).set({
+                cart: cartList,
+                googleId,
+                googleName,
+                token
+            });
+        } else {
+            await db.ref('/orders/' + uuidv4()).set({
+                cart: cartList,
+                userName,
+                token
+            });
+        }
         history.push('/orders');
         emptyCart();  
     }   
@@ -42,7 +51,8 @@ const StripeComponent = ({ price, name, cartList, emptyCart, userGoogle }) => {
 const mapStateToProps = (state) => {
     return  { 
         cartList: state.cart.cartList,
-        userGoogle: state.google.userId
+        userGoogle: state.google.userId,
+        amazonUser: state.login.user
     }
 }
 

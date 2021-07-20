@@ -11,3 +11,10 @@
     border: solid 3.3px;
     border-color: #eec933
 } 
+
+@media (max-width: 400px) {
+    .inputSearch {
+        height: 8px;
+        width: 50%;
+    }
+}

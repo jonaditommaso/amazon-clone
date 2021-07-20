@@ -40,12 +40,12 @@ function Order({ order, orderId }) {
                 <div> 
                     <h4>Product: </h4>
                     
-                    {(order.cart)?.map(orderCart => (
-                        <>
+                    {(order.cart)?.map((orderCart, i) => (
+                        <div className="order__key" key={i}>
                             {orderCart.title} -
                             ${orderCart.price}
                             <br/>
-                        </>
+                        </div>
                     ))}
                 </div>
 
@@ -70,14 +70,19 @@ function Order({ order, orderId }) {
                 <hr/>
 
                 <div>
-                    <h4>Name: </h4>{order.googleName}
+                    <h4>Name: </h4>{order.googleName || order.userName}
                 </div>
 
                 <hr/>
 
-                <div>
-                    <h4>Buyer ID: </h4>{order.googleId}      
-                </div>
+                {
+                    order.googleId 
+                    ? <div>
+                        <h4>Buyer ID: </h4>{order.googleId}      
+                    </div>
+                    :
+                    <></>
+                } 
             </div>
         </div>
     );

@@ -26,3 +26,10 @@
     cursor: pointer;
     background-color: #eec933;
 }
+
+@media (max-width: 380px) {
+    .subtotal {
+        width: 200px;
+        justify-content: center;
+    }
+}

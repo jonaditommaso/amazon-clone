@@ -29,7 +29,7 @@ class Product extends Component {
 
         const {title, price, image, id, rating} = this.props
 
-        if (this.props.isSignedIn) {
+        if (this.props.isSignedIn || this.props.amazonUser.user) {
             return  (
                 this.props.addToCart(title, image, price, id, rating)
             );
@@ -61,7 +61,7 @@ class Product extends Component {
 
                         <div className="product__rating">
                             {
-                                Array(this.props.rating).fill().map(()=> <p>⭐</p>)
+                                Array(this.props.rating).fill().map((rating, i)=> <p key={i}>⭐</p>)
                             }
                         </div>
                     </div>
@@ -76,7 +76,8 @@ class Product extends Component {
 const mapStateToProps = (state)=> {
     return { 
         addcart: state.cart, 
-        isSignedIn: state.google.isSignedIn 
+        isSignedIn: state.google.isSignedIn,
+        amazonUser: state.login
     }
 }
 
