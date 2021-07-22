@@ -36,4 +36,4 @@ const mapStateToProps = (state) => {
     return { remove: state.cart}
 }
 
-export default connect(mapStateToProps, { removeFromCart })(CheckoutProduct)
+export default connect(mapStateToProps, { removeFromCart })(CheckoutProduct);

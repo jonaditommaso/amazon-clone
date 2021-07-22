@@ -57,4 +57,4 @@ const mapStateToProps = (state) => {
     return { cartList: state.cart.cartList }
 }
 
-export default connect(mapStateToProps, { addToCart, emptyCart })(Checkout)
+export default connect(mapStateToProps, { addToCart, emptyCart })(Checkout);

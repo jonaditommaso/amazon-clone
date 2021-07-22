@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import history from '../history';
 import '../styles/login.css';
 import GoogleAuth from './GoogleAuth';
-import { signInWithAmazon } from '../actions';
 
 
 function Login() {
@@ -11,15 +9,8 @@ function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-     const login = e => {
-         e.preventDefault();
-
-    //     if(email && password) {
-    //         if(email === localStorage.getItem('email') && password === localStorage.getItem('password')) {
-    //             signInWithAmazon();
-    //             history.push('/');
-    //         }
-    //     }
+    const login = e => {
+        e.preventDefault();
     }
 
     

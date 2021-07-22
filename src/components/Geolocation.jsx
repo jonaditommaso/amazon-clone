@@ -16,7 +16,6 @@ const Geolocation = () => {
             
             const {data} = await axios.get(`https://api.opencagedata.com/geocode/v1/json?q=${position.coords.latitude}%2C${position.coords.longitude}&key=${GEO_KEY}`)
             setCountry(data.results[0].components.country);
-            console.log(data);
         },
          handleLocationError);      
         } 

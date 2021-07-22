@@ -31,9 +31,6 @@ function Register({ signInWithAmazon }) {
             }
         }
         register();
-        // return () => {
-        //     cleanup
-        // }
     }, [name && email && password]);
 
     const validationSchema = Yup.object({
@@ -49,13 +46,9 @@ function Register({ signInWithAmazon }) {
     }
 
     const onSubmit = (values) => {
-        console.log('values', values)
         setName(values.name);
         setEmail(values.email);
         setPassword(values.password);
-        // saveInfoInLocalStorage()
-        // register();
-        // history.push('/');
     }
 
     
@@ -68,8 +61,6 @@ function Register({ signInWithAmazon }) {
         }
     }
     saveInfoInLocalStorage();
-
-    
 
 
     return (
@@ -143,7 +134,6 @@ function Register({ signInWithAmazon }) {
 }
 
 const mapStateToProps = (state) => {
-    console.log('reducer', state.login);
     return {
        thereUser: state.login
     }

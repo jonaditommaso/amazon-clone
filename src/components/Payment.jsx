@@ -27,7 +27,6 @@ const Payment = ({ cartList, userGoogle, emptyCart, amazonUser }) => {
                 setCity(data?.results[0].components.state_district);
                 setRoad(data?.results[0].components.road);
                 setState(data?.results[0].components.state);
-                console.log(data)
             },
             handleLocationError);     
         } 
@@ -78,7 +77,7 @@ const Payment = ({ cartList, userGoogle, emptyCart, amazonUser }) => {
         }
 
         else {
-           return <StripeComponent
+            return <StripeComponent
                         price={getCartTotal(cartList)}
                         name={cartList.map(name => name.title)} 
                     /> 

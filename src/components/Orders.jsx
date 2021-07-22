@@ -8,7 +8,7 @@ import Order from './Order';
 
 function Orders() {
 
-     const [orders, setOrders] = useState([]);
+    const [orders, setOrders] = useState([]);
 
     useEffect(() => {
         const ref = db.ref('/orders');
