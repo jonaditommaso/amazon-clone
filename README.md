@@ -1,10 +1,3 @@
-IMPORTANT:
-
-    JUST FOR THE MOMENT, THE FULL FLOW OF THE APP WORKS BY LOGGING IN WITH GOOGLE
-
-
-
-
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
